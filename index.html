@@ -1,8 +1,39 @@
 <html>
-  <head>
-    <title>Kishor Malakar</title>
-  </head>
-  <body>
-    <h1>Kishor Malakar</h1>
-  </body>
+    <head>
+        <title>Kishor Malakar | Personal Website</title>
+        <link rel="stylesheet" href="index.css">
+
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;" />
+    </head>
+    <body>
+        <div class="main">
+            <div class="loading active">
+                <div class = 'spinner'>
+                    <div class ="lds-ring"><div></div><div></div><div></div><div></div></div>
+                </div>
+            </div>
+
+            <div class="photo">
+                <div></div>
+            </div>
+            <div class="details">
+                <h1>Kishor Malakar</h1>
+                <h2>IRSS, Probationary Officer</h2>
+                <h3>Ministry of Railways, Government of India</h3>
+                <div class = 'social'>
+                    <a href="https://facebook.com/kishor.malakar">
+                        <img src = 'assets/icon-fb.svg'>
+                    </a>
+                    <a href="https://instagram.com/kishor.malakar">
+                        <img src = 'assets/icon-insta.svg'>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.onload = function(){
+                document.querySelectorAll('.loading')[0].classList.remove('active');
+            }
+        </script>
+    </body>
 </html>
