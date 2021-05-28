@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Send Whatsapp without saving number</title>
+    </head>
+    <body>
+        <h1>Send Whatsapp without saving number</h1>
+        <input class = 'input-whatsapp' type = 'text'/>
+        <button
+            onclick = sendWhatsapp()
+        >
+            Send Whatsapp
+        </button>
+        <script>
+            const sendWhatsapp = () => {
+                const num = document.querySelectorAll('.input-whatsapp')[0].value;
+                window.location.href = 'http://api.whatsapp.com/send?phone='+num;
+            }
+        </script>
+    </body>
+</html>
