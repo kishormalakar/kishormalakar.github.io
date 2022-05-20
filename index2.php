@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="index.css" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" />
 
+        <base href="/projects/portfolio/">
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0;" />
 
@@ -283,6 +284,12 @@
 					</li>
 				</ul>
 			</section>
+            <section class="photos-section">
+                <h4>Photos</h4>
+
+                <div class='photos-container'></div>
+
+            </section>
 		</div>
 		<script>
 			window.onload = function () {
@@ -292,6 +299,77 @@
 
 				const aboveTheFold = document.querySelectorAll(".above-the-fold")[0];
 				aboveTheFold.style.minHeight = windowHeight + "px";
+
+				const xhttp = new XMLHttpRequest();
+
+				xhttp.onreadystatechange = () => {
+
+					if(xhttp.readyState === XMLHttpRequest.DONE){
+
+						if(xhttp.status === 200){
+							console.log(xhttp.response);
+
+							const posts = xhttp.response;
+
+							posts.forEach((post) => {
+
+								let id = post['id'];
+								let xhttp2 = new XMLHttpRequest();
+
+								xhttp2.onreadystatechange = () => {
+
+									if(xhttp2.readyState === XMLHttpRequest.DONE){
+
+										if(xhttp2.status === 200){
+											console.log(xhttp2.response);
+											const data = xhttp2.response;
+
+											const photosSection = document.querySelectorAll(".photos-section")[0].querySelectorAll('.photos-container')[0];
+
+											const a = document.createElement('a');
+                                            a.innerHTML = "<div class='photo' style='background-image:url("+data['media_url']+")'></div>"
+											a.setAttribute('href', data['permalink']);
+											photosSection.appendChild(a);
+
+										}
+										else{
+											console.log(xhttp2.response);
+										}
+
+									}
+
+								}
+
+								xhttp2.open("POST", "photo.php", true);
+								xhttp2.responseType = "json";
+
+								const data = new FormData();
+								data.append('post_id', id);
+
+								xhttp2.send(data);
+
+							})
+
+						}
+						else{
+							console.log(xhttp.response);
+						}
+
+					}
+
+				}
+
+				xhttp.open("GET", "list.php", true);
+				xhttp.responseType = "json";
+				xhttp.send();
+
+				// fetch('photos.php')
+				// .then((response) => {
+				// 	console.log(response);
+				// })
+				// .catch((err) => {
+				// 	console.log(err);
+				// })
 			};
 		</script>
 	</body>

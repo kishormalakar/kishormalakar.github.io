@@ -375,3 +375,20 @@ body.loading .spinner {
 		text-align: left;
 	}
 }
+
+.photos-section .photos-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.photos-section .photos-container a {
+	width: 25%;
+}
+
+.photos-section .photos-container a .photo {
+	padding-top: 100%;
+	background-position: center;
+	background-size: cover;
+}
