@@ -70,7 +70,7 @@
 				</div>
 				<div class="details">
 					<h1>Kishor Malakar</h1>
-					<h2>IRSS, Probationary Officer</h2>
+					<h2>IRSS, Assistant Materials Manager</h2>
 					<h3>Ministry of Railways, Government of India</h3>
 					<div class="social">
 						<a href="https://facebook.com/kishor.malakar" target="blank">
